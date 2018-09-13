@@ -1,7 +1,17 @@
 <h1>Chat room list</h1>
 
+
+<h2>resume chat</h2>
+<ul class='list-group'>
+  <% @rooms.each do |room| %>
+    <li class='list-group-item'><%= link_to room.name, room_path(room.room_number) %></li>
+  <% end %>
+</ul>
+
+<h2>start chat</h2>
 <ul class='list-group'>
   <% @users.each do |user| %>
-    <li class='list-group-item'><%= link_to user.email, room_path(user) %></li>
+    <% next if user == current_user %>
+    <li class='list-group-item'><%= link_to user.email, '/' %></li>
   <% end %>
 </ul>
