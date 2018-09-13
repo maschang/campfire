@@ -1,0 +1,7 @@
+<h1>Chat room list</h1>
+
+<ul class='list-group'>
+  <% @users.each do |user| %>
+    <li class='list-group-item'><%= link_to user.email, '/' %></li>
+  <% end %>
+</ul>
