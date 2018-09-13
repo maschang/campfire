@@ -31,20 +31,23 @@ html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockqu
   background-color: #ddd;
   border-radius: 5px;
   margin: 10px 0;
-  padding: 10px 0 10px 40px;
+  padding: 10px 30px 10px 30px;
+  display: flex;
+  flex-direction: column;
 }
 
-.message {
+.message__item {
+  border-radius: 5px;
   position: relative;
   background: #88b7d5;
   line-height: 30px;
   margin: 10px 0;
   padding-left: 10px;
-  width: 400px;
+  width: 80%;
 }
-.message:after {
-  right: 100%;
-  top: 25%;
+.message__item:after {
+  right: 99%;
+  top: 50%;
   border: solid transparent;
   content: " ";
   height: 0;
@@ -54,5 +57,32 @@ html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockqu
   border-color: rgba(136, 183, 213, 0);
   border-right-color: #88b7d5;
   border-width: 5px 15px 5px 0;
-  margin-top: -5px;
+  margin-top: 5px;
+}
+
+.message__item.is-mine {
+  border-radius: 5px;
+  position: relative;
+  background: white;
+  line-height: 30px;
+  padding-left: 10px;
+  margin: 10px 0;
+  width: 80%;
+  align-self: flex-end;
+}
+
+.message__item.is-mine:after {
+  left: 99%;
+  top: 50%;
+  border: solid transparent;
+  border-style: solid;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: transparent transparent transparent #fff;
+  border-right-color: white;
+  border-width: 5px 0 5px 15px;
+  margin-top: 5px;
 }
