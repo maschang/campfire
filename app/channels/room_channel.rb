@@ -8,6 +8,9 @@ class RoomChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    Message.create! content: data['message']
+    user = current_user
+    room = Room.find_by(room_number: data['room'])
+
+    Message.create! content: data['message'], user: user, room: room
   end
 end

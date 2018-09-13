@@ -6,8 +6,8 @@ class RoomsController < ApplicationController
   end
 
   def show
-    room = Room.find_by(room_number: params[:id])
-    @messages = Message.where(room: room)
+    @room = Room.find_by(room_number: params[:id])
+    @messages = Message.where(room: @room)
 
     #TODO current_userがroomに入室できるかチェック
   end
