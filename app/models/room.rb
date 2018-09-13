@@ -1,6 +1,7 @@
 class Room < ApplicationRecord
   has_many :room_users
   has_many :users, through: :room_users
+  has_many :messages, dependent: :destroy
 
   before_save :set_room_number
 
