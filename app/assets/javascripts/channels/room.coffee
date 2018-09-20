@@ -15,13 +15,12 @@ App.room = App.cable.subscriptions.create "RoomChannel",
   userIsCurrentUser: (userId) ->
     userId is parseInt($('meta[name=current-user]').attr('id'))
 
-
   speak: (message) ->
     @perform 'speak', message: message, user: $('meta[name=current-user]').attr('id'), room: $('#messages').attr('data-room-id')
 
 $(document).on 'keypress', '[data-behavior~=room_speaker]', (event) ->
   if event.keyCode is 13 # return = send
-    return if event.target.value == ''
+    return if event.target.value is ''
     App.room.speak event.target.value
     event.target.value = ''
     event.preventDefault()
